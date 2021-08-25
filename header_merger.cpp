@@ -1,5 +1,6 @@
 /*****************************************
-Header Merger
+        Header Merger v0.1-alpha
+           2021 Andrea Marchi
 This program merges multiple nested header
 files into a single one.
 Includes all the header files into quotes
