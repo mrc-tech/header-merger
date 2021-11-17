@@ -6,4 +6,5 @@ void header2()
 	std::cout << pi;
 }
 #pragma once
+#include "header1.h" // multiple inclusion
 // this is the end of "header2.h" file
