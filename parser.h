@@ -20,7 +20,7 @@ void parse_to_stream(std::ofstream &file, std::string fileName)
 	std::ifstream input(fileName);
 	
 	if(input.fail()){
-		std::cerr << "file non trovato" << std::endl;
+		std::cerr << "file not found" << std::endl;
 	}
 	
 	std::string pathName = getPathName(fileName);
@@ -29,16 +29,17 @@ void parse_to_stream(std::ofstream &file, std::string fileName)
 	std::vector<std::string> strvec;
 	while(getline(input,str)){
 		bool write_to_file = true;
-		strvec = splitTokens(str,' ');
-		for(auto i : strvec) std::cout << i << " "; std::cout << strvec.size() << std::endl;
+		strvec = splitTokens(deleteMultipleSpace(str),' ');
+//		for(auto i : strvec) std::cout << i << " "; std::cout << strvec.size() << std::endl;
 		if(strvec.size() > 1){
 			if(strvec[0] == "#include" && strvec[1][0] == '\"'){
-				std::cout << "trovato un include..." << std::endl;
+//				std::cout << "trovato un include..." << std::endl;
 				std::string temp = pathName + "\\" + strvec[1].substr(1, strvec[1].size()-2);
-				std::cout << temp << std::endl;
+//				std::cout << temp << std::endl;
 				parse_to_stream(file, temp); // recursively parse and include header files
 				write_to_file = false;
 			}
+			if(strvec[0] == "#pragma" && strvec[1] == "once") write_to_file = false;
 		}
 		if(write_to_file) file << str << std::endl;
 	}

@@ -42,9 +42,24 @@ std::string deleteChar(std::string str, char c)
 std::string deleteMultipleSpace(std::string str)
 {
 	//elimina gli spazi consecutivi facendoli diventare uno solo
-	//per leggere file di input indentati (dove l'indentaizone non conta)
 	
+	bool foundSpace = false;
+	std::string res;
 	
+	for(int i=0;i<str.length();i++){
+		if(str[i]==' '){
+			//ha incontrato uno spazio
+			if(!foundSpace){
+				foundSpace = true;
+				res = res + str[i];
+			}
+		}else{
+			foundSpace = false;
+			res = res + str[i];
+		}
+	}
+	
+	return res;
 }
 
 

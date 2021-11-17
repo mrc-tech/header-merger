@@ -5,4 +5,5 @@ void header2()
 	double pi = 3.14159265;
 	std::cout << pi;
 }
+#pragma once
 // this is the end of "header2.h" file
