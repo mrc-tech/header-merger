@@ -43,7 +43,7 @@ void parse_to_stream(std::ofstream &file, std::string fileName)
 				for(auto i=0; i<included_files.size() && isIncluded==false; i++)
 					if(temp == included_files[i]) isIncluded = true;
 				if(!isIncluded){
-					included_files.push_back(temp);
+					included_files.push_back(temp); // avoid redefinition of the file
 					parse_to_stream(file, temp); // recursively parse and include header files
 				}
 				write_to_file = false;

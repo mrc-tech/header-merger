@@ -62,6 +62,17 @@ std::string deleteMultipleSpace(std::string str)
 	return res;
 }
 
+std::string deleteInitialSpace(std::string str)
+{
+	if(str[0]==' '){
+		//il primo elemento è uno spazio e non lo considera
+		str.erase(0,1); //elimina 1 carattere partendo dall'indice 0
+		return str;
+	}else{
+		//non ci sono spazi iniziali e ritorna la stringa così com'è
+		return str;
+	}
+}
 
 std::string deleteFirstSpace(std::string str)
 {

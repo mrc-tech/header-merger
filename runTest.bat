@@ -1,0 +1,1 @@
+header_merger test\test.h -o OUTPUT.h
