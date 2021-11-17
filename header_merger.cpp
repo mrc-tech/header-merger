@@ -22,8 +22,10 @@ int main(int argc, char **argv)
 		// no parameters given
 		cout << "Header Merger " << HEADER_MERGER_VERSION;
 		cout << " - (c) 2021 Marchi Technology" << endl << endl;
+		cout << "   Merges multiple header files into a single one" << endl << endl;
 		cout << "Usage: header_merger (input_fileName) [-o <output_fileName>]" << endl << endl;
-		cout << "   if no output_fileName is provided default file name is the one with \"_merged\" at the end" << endl;
+		cout << "   if no output_fileName is provided default file name is the one with" << endl;
+		cout << "   \"_merged\" at the end" << endl;
 		#ifdef __WIN32
 		cout << endl;
 		system("pause");
