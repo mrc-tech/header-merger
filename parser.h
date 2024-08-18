@@ -23,10 +23,12 @@ void parse_to_stream(std::ofstream &file, std::string fileName)
 	std::ifstream input(fileName);
 	
 	if(input.fail()){
-		std::cerr << "file not found" << std::endl;
+		std::cerr << "file \"" << fileName << "\" not found" << std::endl;
 	}
 	
 	std::string pathName = getPathName(fileName);
+	
+//	std::cout << pathName << std::endl;
 	
 	std::string str;
 	std::vector<std::string> strvec;
@@ -37,7 +39,7 @@ void parse_to_stream(std::ofstream &file, std::string fileName)
 		if(strvec.size() > 1){
 			if(strvec[0] == "#include" && strvec[1][0] == '\"'){
 //				std::cout << "trovato un include..." << std::endl;
-				std::string temp = pathName + "\\" + strvec[1].substr(1, strvec[1].size()-2);
+				std::string temp = '.' + pathName + "/" + strvec[1].substr(1, strvec[1].size()-2);
 //				std::cout << temp << std::endl;
 				bool isIncluded = false; // check if is alredy included
 				for(auto i=0; i<included_files.size() && isIncluded==false; i++)
@@ -64,7 +66,8 @@ std::string getPathName(const std::string& s)
 	char sep = '/';
 	
 #ifdef _WIN32
-	sep = '\\';
+//	sep = '\\';
+	sep = '/';
 #endif
 
 	size_t i = s.rfind(sep, s.length());

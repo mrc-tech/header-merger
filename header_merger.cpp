@@ -13,7 +13,7 @@ i.e. #include "fileName.h"
 
 using namespace std;
 
-#define HEADER_MERGER_VERSION  "v0.1-beta"
+#define HEADER_MERGER_VERSION  "v0.2-beta"
 
 
 int main(int argc, char **argv)
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	if(argc < 2){
 		// no parameters given
 		cout << "Header Merger " << HEADER_MERGER_VERSION;
-		cout << " - (c) 2021 Marchi Technology" << endl << endl;
+		cout << " - (c) 2021-2024 Marchi Technology" << endl << endl;
 		cout << "   Merges multiple header files into a single one" << endl << endl;
 		cout << "Usage: header_merger (input_fileName) [-o <output_fileName>]" << endl << endl;
 		cout << "   if no output_fileName is provided default file name is the one with" << endl;
